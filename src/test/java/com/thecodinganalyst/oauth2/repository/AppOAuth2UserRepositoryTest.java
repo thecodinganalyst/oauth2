@@ -36,4 +36,22 @@ class AppOAuth2UserRepositoryTest {
         assertThat(user.get().getUsername(), is("user1@gmail.com"));
         assertThat(user.get().getProvider(), is("google"));
     }
+
+    @Test
+    void givenUserWithSameUserNameButDifferentProviderExists_whenFindByUsernameAndProvider_thenReturnNoUser() {
+        AppOAuth2User appOAuth2User = new AppOAuth2User("user1@gmail.com", "facebook");
+        mongoTemplate.save(appOAuth2User);
+
+        Optional<AppOAuth2User> user = appOAuth2UserRepository.findByUsernameAndProvider("user1@gmail.com", "google");
+        assertTrue(user.isEmpty());
+    }
+
+    @Test
+    void givenUserWithSameProviderButDifferentUsernameExists_whenFindByUsernameAndProvider_thenReturnNoUser() {
+        AppOAuth2User appOAuth2User = new AppOAuth2User("user1@gmail.com", "facebook");
+        mongoTemplate.save(appOAuth2User);
+
+        Optional<AppOAuth2User> user = appOAuth2UserRepository.findByUsernameAndProvider("user2@gmail.com", "facebook");
+        assertTrue(user.isEmpty());
+    }
 }
