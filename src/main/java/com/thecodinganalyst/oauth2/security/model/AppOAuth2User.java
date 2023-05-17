@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 @Document(collection = "AppOAuth2User")
-@CompoundIndex(def = "{'username': 1, 'provider': 1}, unique = true")
+@CompoundIndex(def = "{'username': 1, 'provider': 1}", unique = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,7 +35,7 @@ public class AppOAuth2User implements UserDetails {
     }
 
     @Override
-    public String getUsername() {
+    public @NonNull String getUsername() {
         return username;
     }
 
