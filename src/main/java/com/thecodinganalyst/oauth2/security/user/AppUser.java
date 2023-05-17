@@ -1,4 +1,4 @@
-package com.thecodinganalyst.oauth2.security.model;
+package com.thecodinganalyst.oauth2.security.user;
 
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;

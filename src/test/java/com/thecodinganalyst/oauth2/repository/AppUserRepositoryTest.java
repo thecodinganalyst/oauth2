@@ -1,7 +1,7 @@
 package com.thecodinganalyst.oauth2.repository;
 
 import com.thecodinganalyst.oauth2.MongoDBTestContainerConfig;
-import com.thecodinganalyst.oauth2.security.model.AppUser;
+import com.thecodinganalyst.oauth2.security.user.AppUser;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;

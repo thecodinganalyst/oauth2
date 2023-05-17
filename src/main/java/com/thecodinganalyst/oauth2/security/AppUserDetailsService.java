@@ -4,12 +4,14 @@ import com.thecodinganalyst.oauth2.repository.AppUserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-public class MongoUserDetailsService implements UserDetailsService {
+@Service
+public class AppUserDetailsService implements UserDetailsService {
 
     AppUserRepository appUserRepository;
 
-    public MongoUserDetailsService(AppUserRepository appUserRepository){
+    public AppUserDetailsService(AppUserRepository appUserRepository){
         this.appUserRepository = appUserRepository;
     }
 
